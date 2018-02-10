@@ -16,11 +16,10 @@
 //   - Didn't use ReactJS
 //   - Need router code to correctly handle browser history
 //   - Need "more" button to fetch beyond initial results
-//   - Could use a "clear" button to start over, although clicking on "myApp" does that
 //   - Everything always needs more error handling and tighting of corner cases
 
 const NO_IMAGE_URL = "assets/no-image.jpg";
-const ENABLE_DEBUG = true;
+const ENABLE_DEBUG = false;
 
 var debugPrint = function(debugStr) {
     if (ENABLE_DEBUG === true) {
@@ -407,7 +406,7 @@ var locationHashChanged = function() {
             var spl = location.hash.split("#artist-id=");
             if (spl.length > 0) {
                 artist_id = spl[1];
-                console.log("artist in hash: " + artist_id);
+                debugPrint("artist in hash: " + artist_id);
                 hideAlbumDetails();
                 showAlbums();
                 albumsByArtistIDGet(artist_id);
@@ -435,6 +434,13 @@ var locationHashChanged = function() {
 };
 
 window.onhashchange = locationHashChanged;
+
+var replaceHash = function() {
+    var new_location = location.toString().split('#');
+    if (new_location && new_location[0]) {
+        location.replace(new_location[0] + '#');
+    }
+};
 
 $(document).ready(function() {
     // search_click_disabled prevents the search button from being triggered
@@ -503,6 +509,18 @@ $(document).ready(function() {
 
     $('#album-details-close').on('click', function() {
         hideAlbumDetails();
+    });
+
+    $('#clear-button').on('click', function() {
+        $('#artists-container').empty();
+        $('#albums-container').empty();
+        $('#tracks-list').empty();
+        $('#search-input').val('');
+        hideAlbumDetails();
+        hideAlbums();
+        hideArtists();
+        hideSearchClear();
+        replaceHash();
     });
 
     checkLogin();

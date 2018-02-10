@@ -11,6 +11,7 @@ var showLogin = function() {
     $('#search-input').attr('placeholder', '');
     $('#search-input').attr('disabled', 'disabled');
     $('#search-button').attr('disabled', 'disabled');
+    $('#clear-button').attr('disabled', 'disabled');
     hideSearchClear();
 
     hideArtists();
@@ -27,6 +28,9 @@ var hideLogin = function() {
     $('#search-input').attr('placeholder', 'Search for artist');
     $('#search-button').removeAttr('disabled');
     $('#search-input').removeAttr('disabled');
+    $('#clear-button').removeAttr('disabled');
+
+    replaceHash();
 
     // This might not work so well if we had to relogin in the
     // middle of doing something else.
