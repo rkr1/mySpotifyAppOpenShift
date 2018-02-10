@@ -20,6 +20,8 @@
 
 const NO_IMAGE_URL = "assets/no-image.jpg";
 const ENABLE_DEBUG = false;
+const ARTISTS_LIMIT = 5; // number of artists to fetch per sort
+const ALBUMS_LIMIT = 5;  // number of albums per artist to fetch
 
 var debugPrint = function(debugStr) {
     if (ENABLE_DEBUG === true) {
@@ -54,7 +56,7 @@ var albumsByArtistIDSpotify = function(artist_id, successHandler, errorHandler) 
     var requestData = {
             album_type: "single,album",
             offset: 0,
-            limit: 10
+            limit: ALBUMS_LIMIT 
         };
     var url = 'https://api.spotify.com/v1/artists/' + artist_id + '/albums';
     makeRequest(url, requestData, successHandler);
@@ -144,7 +146,7 @@ var artistSearch = function() {
         hideAlbums();
         hideAlbumDetails();
         // TODO: show a spinner
-        searchSpotify(query, 'artist', 0, 10, artistListRender, genericErrorHandler);
+        searchSpotify(query, 'artist', 0, ARTISTS_LIMIT, artistListRender, genericErrorHandler);
     }
     return false;
 };
@@ -236,6 +238,8 @@ var albumsByArtistIDSuccess = function(data) {
         debugPrint("No albums found");
     }
     $('#albums-header-text').text(header_str);
+    // scrollTo isn't having quite the effect I wanted
+    // $(window).scrollTo('#albums-header');
 };
 
 var albumsByArtistIDError = function() {
@@ -442,6 +446,13 @@ var replaceHash = function() {
     }
 };
 
+/*
+$.extend($.scrollTo.defaults, {
+  axis: 'y',
+  duration: 500
+});
+*/
+
 $(document).ready(function() {
     // search_click_disabled prevents the search button from being triggered
     // multiple times in a half second
@@ -525,3 +536,5 @@ $(document).ready(function() {
 
     checkLogin();
 });
+
+

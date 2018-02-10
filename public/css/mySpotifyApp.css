@@ -54,6 +54,7 @@ ul.list-unstyled li {
 
 .row {
   margin-left: 0px;
+  margin-right: 0px;
 }
 
 #about-button:focus {
@@ -66,4 +67,9 @@ ul.list-unstyled li {
 
 #about-modal p {
   margin-bottom: 5px;
+}
+
+#top-container {
+  padding-left: 0;
+  padding-right: 0;
 }
