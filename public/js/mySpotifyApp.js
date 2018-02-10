@@ -14,11 +14,9 @@
 //
 // Known issues:
 //   - Didn't use ReactJS
+//   - Need router code to correctly handle browser history
 //   - Need "more" button to fetch beyond initial results
-//   - Need "clear" button to start over, although clicking on "myApp" does that
-//   - Replace "myApp" with a home icon
-//   - History state isn't correct all of the time
-//   - Formatting imperfections
+//   - Could use a "clear" button to start over, although clicking on "myApp" does that
 //   - Everything always needs more error handling and tighting of corner cases
 
 const NO_IMAGE_URL = "assets/no-image.jpg";
