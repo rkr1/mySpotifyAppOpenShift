@@ -1,0 +1,14 @@
+{
+  "name": "myspotifyapp-openshift",
+  "version": "0.0.1",
+  "description": "mySpotifyApp for OpenShift",
+  "main": "openshift_server.js",
+  "scripts": {
+    "start": "node openshift_server.js"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.2",
+    "request": "^2.83.0"
+  }
+}

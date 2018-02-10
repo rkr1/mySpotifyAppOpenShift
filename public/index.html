@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta copyright="Copyright (c) 2018 Renee K. Rodgers">
+  
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Autocomplete search widget's CSS -->
+    <link rel="stylesheet" href="css/autocomplete.css">
+
+    <!-- Additional tweaks for myApp -->
+    <link rel="stylesheet" href="css/mySpotifyApp.css">
+
+    <title>mySpotifyApp</title>
+  </head>
+  <body>
+    <div class="container-fluid" id="top-container">
+      <nav class="navbar navbar-light bg-light">
+        <div class="col-sm-2">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">mySpotifyApp</a>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="nav navbar-nav navbar-center" id="search-container">
+            <div class="input-group">
+              <input id="search-input" class="form-control" type="search" placeholder="" />
+              <button id="search-clear" type="button" class="close d-none" aria-label="Clear" style="margin-left:-25px;">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <div class="input-group-append">
+                <button class="btn btn-outline-primary" disabled id="search-button" type="submit" style="margin-left:5px;">Search</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-2">
+          <div class="navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <a id="about-button" class="nav-link" style="text-align-last:end;" href="#" data-toggle="modal" data-target="#about-modal">About</a>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <div class="row flex-xl-nowrap">
+        <div class="container col-md-3 col-md-9 mt-4" id="content-container">
+          <div class="row justify-content-center text-center" id="login-container">
+            <div class="col text-center">
+              <h3>Welcome to mySpotifyApp</h3>
+              <p>Please login to Spotify</p>
+              <a id="login-button" href="/login" class="btn btn-primary btn-center" >Login</a>
+            </div>
+          </div>
+
+          <div class="row justify-content-between d-none" style="margin-left:50px; margin-right:50px;" id="artists-header">
+            <h5 class="pull-left">Artists</h5>
+            <div class="pull-right d-none"> <!-- close buttons seem too distracting -->
+              <button id="artists-close" type="button" class="float-right close" aria-label="Close" data-toggle="tooltip" title="Close artists" style="height:15px; margin-top:-10px;">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+          </div>
+          <div class="row d-flex flex-wrap justify-content-center mt-2" id="artists-container"></div>
+
+          <div class="row justify-content-between d-none mt-4" id="albums-header">
+            <h6 id="albums-header-text" class="float-left">Albums</h6>
+            <div class="pull-right d-none"> <!-- close buttons seem too distracting -->
+              <button id="albums-close" type="button" class="float-right close" aria-label="Close" data-toggle="tooltip" title="Close albums" style="height:15px; margin-top:-10px;">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+          </div>
+          <div class="row justify-content-center mt-2" id="albums-container"></div>
+
+        </div>
+
+        <div class="col mt-4 collapse" id="album-details-container">
+          <button id="album-details-close" type="button" class="float-right close" aria-label="Close" data-toggle="tooltip" title="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h5 id="album-details-album-name"></h5>
+          <h6 id="album-details-artist-name"></h6>
+          <p id="album-details-year"></p>
+          <ul id="tracks-list" class="list-unstyled"></ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- About modal -->
+    <div class="modal fade" id="about-modal" tabindex="-1" role="dialog" aria-labelledby="about-modal-title" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document" style="max-width:750px;">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="about-modal-title">About mySpotifyApp</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>This is an interview project.  The requirements (intentionally paraphrased) include:</p>
+            <ul>
+              <li>Build a web app that uses the Spotify API. The user should be able to:</li>
+                <ul>
+                  <li>Search for artists</li>
+                  <ul><li>Display a dropdown with search suggestions while the user types</li></ul>
+                  <li>Show a list of albums when the user clicks on a artist</li>
+                  <li>Show the details of the album, including tracks and duration, when the user clicks on an album</li>
+                </ul>
+              <li>Use ReactJS <span style="color:red;"><i>(not done)</i></span></li>
+              <li>Use another other framework, standard code, etc.  This project uses:</li>
+                <ul>
+                  <li>Bootstrap 4</li>
+                  <li>jQuery</li>
+                  <li>Node.js</li>
+                  <li>Autocomplete library from www.algolia.com</li>
+                  <li>Example login code from Spotify</li>
+                </ul>
+                <li>Preserves browser state, i.e. history buttons work <span style="color:red;"><i>(sort of works)</i></span></li>
+                <ul>
+                  <li>This sort of works, based on a made-up-hacked-up solution I came up with based on hashes.</li>
+                  <li><b>The correct solution requires the use of router code.</b></li>
+                </ul>
+              <li>Bonus</li>
+                <ul>
+                  <li>Compatible with all modern browsers</li>
+                  <ul><li>Intentionally used Bootstrap, which is designed for that purpose</li></ul>
+                  <li>Use of SASS/LESS and BEM would be appreciated <span style="color:red"><i>(not done)</i></span></li>
+                  <li>UX evaluated</li>
+                    <ul>
+                      <li>I tried to make this app flow well without specifically copying any other examples that I saw on Spotify's developer site.</li>
+                      <li>Better colors could be used.</li>
+                      <li>Only retrieve the first x search matches.  Didn't implement "get next".</li>
+                    </ul>
+                  </li>
+                </ul>
+            </ul>
+          </div>
+          <div class="modal-footer justify-content-between" style="height:20px;">
+            <span style="font-size:10px; text-align:left;">Version 1.02 running on OpenShift</span>
+            <span class="float-right" style="font-size:10px; text-align:end;">(c) 2018 Renee K. Rodgers</span>
+          </div>
+        </div>
+      </div>
+    </div>
+          
+    <!-- per Bootstrap's instructions: jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <!-- Search module from https://www.algolia.com/ -->
+    <script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js"></script>
+    
+    <!-- also available
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-autocomplete/1.8.0/react-autocomplete.min.js"></script>
+    -->
+
+    <script src="js/spotifyLogin.js"></script>
+    <script src="js/mySpotifyApp.js"></script>
+  </body>
+</html>
+
