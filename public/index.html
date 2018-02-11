@@ -97,7 +97,7 @@
 
     <!-- About modal -->
     <div class="modal fade" id="about-modal" tabindex="-1" role="dialog" aria-labelledby="about-modal-title" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document" style="max-width:750px;">
+      <div class="modal-dialog modal-dialog-centered" role="document" style="max-width:800px;">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="about-modal-title">About mySpotifyApp</h5>
@@ -112,11 +112,12 @@
                 <ul>
                   <li>Search for artists</li>
                   <ul><li>Display a dropdown with search suggestions while the user types</li></ul>
-                  <li>Show a list of albums when the user clicks on a artist</li>
+                  <li>Show a list of albums when the user clicks on an artist</li>
                   <li>Show the details of the album, including tracks and duration, when the user clicks on an album</li>
                 </ul>
               <li>Use ReactJS <span style="color:red;"><i>(not done)</i></span></li>
-              <li>Use another other framework, standard code, etc.  This project uses:</li>
+                <ul><li>See note below under <i>What's next</i></li></ul>
+              <li>Use any other framework, standard code, etc.  This project uses:</li>
                 <ul>
                   <li>Bootstrap 4</li>
                   <li>jQuery</li>
@@ -136,16 +137,29 @@
                   <li>Use of SASS/LESS and BEM would be appreciated <span style="color:red"><i>(not done)</i></span></li>
                   <li>UX evaluated</li>
                     <ul>
-                      <li>I tried to make this app flow well without specifically copying any other examples that I saw on Spotify's developer site.</li>
-                      <li>Better colors could be used.</li>
-                      <li>Only retrieve the first x search matches.  Didn't implement "get next".</li>
+                      <li>Tried to make this app flow well without specifically copying any other examples on Spotify's developer site</li>
+                      <li>Better colors could be used</li>
+                      <li>Only retrieves the first x search matches, needs to implement "get next"</li>
                     </ul>
                   </li>
+                </ul>
+              <li>What's next</li>
+                <ul>
+                  <li>Port or rewrite with ReactJS</li>
+                    <ul><li>Since I have not used ReactJS before and had a short deadline, I decided to get something working using methods I do know, then port to ReactJS.</li></ul>
+                  <li>Add router code or use a framework</li>
+                    <ul><li>My last use of router code was about four years ago.  The fact that this is what I was missing finally occurred to me as I was nearing my deadline.</li></ul>
+                  <li>Make better use of Bootstrap</li>
+                    <ul>
+                      <li>Dev and testing were done with Chrome, alignment needs to be improved in Edge</li>
+                      <li>Code needs to be added for collapsing the header on mobile</li>
+                      <li>Remove the CSS short-cut hacks I added just to finish.  That is not proper design.</li>
+                    </ul>
                 </ul>
             </ul>
           </div>
           <div class="modal-footer justify-content-between" style="height:20px;">
-            <span style="font-size:10px; text-align:left;">Version 1.04 running on OpenShift</span>
+            <span style="font-size:10px; text-align:left;">Version 1.05 running on OpenShift</span>
             <span class="float-right" style="font-size:10px; text-align:end;">(c) 2018 Renee K. Rodgers</span>
           </div>
         </div>
