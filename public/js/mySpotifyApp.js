@@ -4,19 +4,22 @@
 //
 // JavaScript code to interface with the SpotifyAPI.
 // 
-// Requirements included:
-//   - Searching by artist, and giving search suggestions
+// Requirements include:
+//   - Search by artist, and giving search suggestions
 //   - Display list of artists retrieved
 //   - Clicking on an artist retrieves a list of their albums
-//   - Clicking on an album retrieves a list of tracks
+//   - Clicking on an album retrieves the album details, including a list of tracks
 //   - Use ReactJS
 //   - Back button/history state
 //
 // Known issues:
 //   - Didn't use ReactJS
+//     Since I have not used ReactJS before and had a short deadline, I planned to get
+//     things working, then port to ReactJS.
 //   - Need router code to correctly handle browser history
 //   - Need "more" button to fetch beyond initial results
-//   - Everything always needs more error handling and tighting of corner cases
+//   - Login corner cases were not tested
+//   - Everything always needs more error handling and tightening of corner cases
 
 const NO_IMAGE_URL = "assets/no-image.jpg";
 const ENABLE_DEBUG = false;
